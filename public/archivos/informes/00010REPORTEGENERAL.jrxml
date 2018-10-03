@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="00010REPORTEGENERAL" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f468b211-982b-4a33-afb8-27c949354400">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="20"/>
+	<parameter name="PR_STRSQL" class="java.lang.String"/>
+	<parameter name="PR_STRSQLAUX" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{PR_STRSQL}.replace(".c*"," ")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PR_IMAGE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{PR_STRSQLAUX}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="nit" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="nombre_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="numero_1" class="java.lang.Integer" resetType="Group" resetGroup="DIRECCION" calculation="Sum">
+		<variableExpression><![CDATA[$F{numero}]]></variableExpression>
+	</variable>
+	<variable name="contador" class="java.lang.Integer" resetType="Group" resetGroup="DIRECCION" calculation="Count">
+		<variableExpression><![CDATA[$V{contador}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<group name="DIRECCION">
+		<groupExpression><![CDATA[$F{direccion}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<textField>
+					<reportElement mode="Opaque" x="338" y="12" width="217" height="21" backcolor="#CCCCCC" uuid="33996167-c765-462d-a06e-15428cc81835"/>
+					<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="270" y="12" width="68" height="21" backcolor="#CCCCCC" uuid="d05051f5-12e1-48ef-b179-2bac285107f6"/>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="Tahoma" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dirección:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="12" width="68" height="21" backcolor="#CCCCCC" uuid="88445a12-1d64-4aa6-9d86-05aaa2aa4b98"/>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="Tahoma" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nombre:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="67" y="12" width="203" height="21" backcolor="#CCCCCC" uuid="3e51d469-06da-4382-838a-29768f2a48ba"/>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="43">
+				<textField>
+					<reportElement x="117" y="1" width="100" height="20" uuid="3c231697-b77e-466d-9172-42aeb28bf715"/>
+					<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="117" height="21" backcolor="#CCCCCC" uuid="0aac688d-b713-4eb5-b5c2-f7e1f43df8d1"/>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="Tahoma" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad de pesonas:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="157" splitType="Stretch">
+			<staticText>
+				<reportElement x="167" y="40" width="284" height="92" uuid="8a090e28-a808-4bc0-b650-772edd97e3bf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME GENERAL PUNTOS DE VOTACIÓN]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="387" y="10" width="168" height="20" uuid="62551112-163e-40e4-917a-e4b89a38fdb3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="10" width="157" height="96" uuid="73209883-1a18-4715-b0e3-5d25486d8368"/>
+				<imageExpression><![CDATA[$P{PR_IMAGE}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="167" y="10" width="80" height="20" uuid="3a7bf27d-693f-4d3d-9d0d-8a25ec35ee16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="247" y="10" width="40" height="20" uuid="f5924f7c-86cb-4f5a-9e00-f18b05acd808"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="200" height="20" uuid="8ffa2a85-4843-4a3e-94bb-f58a29309732"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="10" width="121" height="20" uuid="d6bdab01-892c-436d-a352-69303a9cbfa8"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="10" width="145" height="20" uuid="9fa6bd81-8baa-4353-9971-46fe570dd3eb"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="200" height="20" isPrintWhenDetailOverflows="true" uuid="4f52c7a6-b720-4538-8334-a9f48eba7552"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="344" y="0" width="122" height="20" isPrintWhenDetailOverflows="true" uuid="6a74dae4-d4aa-4062-9878-ad1304538ee4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="200" y="0" width="145" height="20" uuid="c537d3b2-4997-4c53-9f6f-ee92106ad0c4"/>
+				<textFieldExpression><![CDATA[$F{nit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="0" width="46" height="20" forecolor="#FFFFFF" uuid="cd6232f6-8079-4227-897f-77130fe57671"/>
+				<textFieldExpression><![CDATA[$V{contador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="34" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
