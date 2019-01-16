@@ -11,7 +11,7 @@
 	<queryString>
 		<![CDATA[$P!{PR_STRSQLAUX}]]>
 	</queryString>
-	<field name="ID" class="java.lang.Long">
+	<field name="NIT" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="NOMBRES" class="java.lang.String"/>
@@ -64,7 +64,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Código]]></text>
+				<text><![CDATA[Cédula]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="110" y="15" width="120" height="20" uuid="44de3dcc-3f67-40da-ae7f-f5b3c0abee9a"/>
@@ -117,7 +117,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{NIT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="110" y="0" width="120" height="20" uuid="024ba710-64e4-4fae-beac-f80cc4f05ff7"/>

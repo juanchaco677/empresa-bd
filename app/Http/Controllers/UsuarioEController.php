@@ -583,6 +583,7 @@ class UsuarioEController extends Controller
                   $localizacion=Localizacione::find($punto->id_localizacion);
                   $ciudad=Ciudades::find($localizacion->id_ciudad);
                   return view("auth.admin.creare")->with([
+                    "localizacion"=>$localizacion,
                     "formulario"=>"A",
                     "usuario"=>$usuario,
                     "formacions"=>$formacions,
